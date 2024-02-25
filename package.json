@@ -6,6 +6,10 @@
   "type": "module",
   "scripts": {
     "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --outDir dist/server --ssr src/entry.server.jsx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,6 +22,7 @@
   "dependencies": {
     "he": "^1.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sirv": "^2.0.4"
   }
 }
